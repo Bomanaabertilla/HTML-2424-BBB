@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div class="container">
+    <div class="leftside">
+        <div class="header">
+            <div class="userimg">
+                <img src="IMG-20211220-WA0059.jpg" alt="" class="cover">
+
+                <!-- Inside the .header div -->
+               <div class="dark-mode-toggle">
+               <label class="switch">
+               <input type="checkbox" id="darkModeToggle">
+               <span class="slider round"></span>
+             </label>
+</div>
+
+            </div>
+            <ul class="nav_icons">
+                <li><ion-icon name="scan-circle-outline"></ion-icon></li>
+                <li><ion-icon name="chatbox"></ion-icon></li>
+                <li><ion-icon name="ellipsis-vertical"></ion-icon></li>
+            </ul>
+        </div>
+        <div class="search_chat">
+            <div>
+                
+                <!-- Inside the .search_chat div -->
+                <input type="text" placeholder="search or start new chat">
+                <button class="search-button"><ion-icon name="search-outline"></ion-icon></button>
+
+            </div>
+        </div>
+
+        <div class="chatlist">
+            <div class="block active">
+                <div class="imgBox">
+                    <img src="images (4).jpeg" class="cover" alt="">
+                </div>
+                <div class="details">
+                    <div class="listHead">
+                        <h4>Bertilla</h4>
+                        <p class="time">12:38</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="rightside"></div>
+
+   
+    </div>
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+     <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const container = document.querySelector('.container');
+    
+        darkModeToggle.addEventListener('change', () => {
+            container.classList.toggle('dark-mode', darkModeToggle.checked);
+        });
+    </script>
+    
+</body>
+</html>
+
+
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(
+        #009688 0%,
+        #009688 130px,
+        #d9dbd5 130px,
+        #d9dbd5 100%);
+}
+.container{
+    position: relative;
+    width: 1298px;
+    max-width: 100%;
+    height: calc(100vh - 40px);
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.06);
+    display:flex;
+}
+
+container .leftside{
+    position: relative;
+    flex: 30%;
+    background: #f00;
+    border-right: 1px solid rgba(0,0,0,0.2);
+    
+}
+.container.rightside{
+    position: relative;
+    flex: 70%;
+    background: #e5ddd5;
+}
+
+.container .rightside ::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("images/pattern.png");
+    opacity: 0.06;
+
+
+}
+
+.header{
+    position: relative;
+    width: 100%;
+    height: 60%;
+    background: #ededed;
+    display: flex;
+    justify-content: space-between;
+       align-items: center;
+     padding:0 15px;
+}
+
+.userimg{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+.cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nav_icons li{
+    display: flex;
+    list-style: none;
+    cursor: pointer;
+    color: #51585c;
+    font-size: 1.5em;
+    margin-left: 22px;
+}
+
+.search_chat{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: #f6f6f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.search_chat div{
+    width: 100%;
+}
+
+.search_chat div input{
+    width: 100%;
+    outline: none;
+    border: none;
+    background: #fff;
+    padding: 6px;
+    height: 38px;
+    border-radius:30px;
+    font-size: 14px;
+    padding-left: 40px;
+}
+
+.search_chat div input::placeholder{
+    color: #bbb;
+    
+}
+
+.search_chat div ion-icon{
+    position: absolute;
+    left: 30px;
+    top: 14px;
+    font-size: 1.2em;
+}
+
+.chatlist{
+    position: relative;
+    height: calc(100%)
+}
+
+/* Existing styles */
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .container .leftside {
+        flex: 100%;
+        border-right: none;
+    }
+    
+    .container .rightside {
+        flex: 100%;
+    }
+}
+
+/* Existing styles */
+
+/* Add these styles for dark mode */
+body.dark-mode {
+    background: #2c3e50;
+    color: #ecf0f1;
+}
+
+.container.dark-mode {
+    background: #34495e;
+    box-shadow: none;
+}
+
+/* Add more dark mode styling as needed */
+
+
+
